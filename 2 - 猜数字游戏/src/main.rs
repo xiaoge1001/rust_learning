@@ -43,7 +43,10 @@ fn main() {
         // let guess: u32 = guess.trim().parse().expect("输入数据非法，请输入数字!");
         let guess: u32 = match guess.trim().parse() {
             Ok(num) => num,
-            Err(_) => continue,
+            Err(_) => {
+                print!("输入不合法，请输入整数数据！！！\n");
+                continue;
+            }
         };
         match guess.cmp(&secert_number) {
             Ordering::Less => println!("too less"),
